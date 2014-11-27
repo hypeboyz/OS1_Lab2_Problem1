@@ -31,10 +31,10 @@ static int clock_seq_show(struct seq_file *sf, void *v)
 	seq_printf(sf, "%s", buf);
 
 	rtc_time_to_tm(tv.tv_sec, &result);
-	sprintf(buf, "%d:%d:%d %d.%d.%d\n", result.tm_hour - 
-			(sys_tz.tz_minuteswest / 60) + sys_tz.tz_dsttime, 
+	sprintf(buf, "%d:%d:%d %d.%d.%d\n", result.tm_hour -
+			(sys_tz.tz_minuteswest / 60) + sys_tz.tz_dsttime,
 			result.tm_min, result.tm_sec, result.tm_mday,
-			result.tm_mon, 
+			result.tm_mon,
 			/* The tm_year is the number since 1900 */
 			result.tm_year + 1900);
 	seq_printf(sf, "%s", buf);
